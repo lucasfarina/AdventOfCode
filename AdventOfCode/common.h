@@ -27,4 +27,4 @@ extern void startTime();
 
 extern void endTime();
 
-extern char* getDynamicSizeString();
+extern char* getDynamicSizeString(int* size);

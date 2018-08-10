@@ -68,7 +68,7 @@ void endTime() {
 	printf("Time used: %f\n", cpu_time_used);
 }
 
-char* getDynamicSizeString() {
+char* getDynamicSizeString(int* size) {
 	int packageLength = 10;
 	int currentSize = packageLength + 1;
 	char* string = malloc(currentSize);
@@ -83,6 +83,7 @@ char* getDynamicSizeString() {
 			string = realloc(string, currentSize);
 		}
 	}
+	*size = i;
 	string[i] = '\0';
 
 	storeInGC(&gc, string);
