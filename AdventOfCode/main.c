@@ -12,16 +12,27 @@ int main(void) {
 			i = 0;
 		}
 		if (chosenDay == -42) { break; }
+		int half;
+		printf("Please select the half(<0> -> first half, <anything else> -> second half): \n");
+		scanf(" %d", &half);
+		while (getchar() != '\n') {
+			i = 0;
+		}
 
 		switch (chosenDay)
 		{
 		case 1:
-			FindSumOfEquals();
+			if (half != 0) {
+				FindSumOfEqualsHalf();
+			}
+			else {
+				FindSumOfEquals();
+			}
 		default:
 			chosenDay = -1;
 			break;
 		}
-		printf("--------------------------------\n");
+		printf("--------------------------------\n\n");
 		freeGC();
 	}
 
