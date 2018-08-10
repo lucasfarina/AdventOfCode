@@ -2,23 +2,21 @@
 #include "day1.h"
 
 int main(void) {
+	//Present the stop protocol
 	printf("[Enter the day -42 to stop the program] : not the answer to life the universe and everything\n");
+
 	int chosenDay = -1;
 	while (chosenDay <= 0 || chosenDay > 25) {
 		printf("Please select a day to execute: \n");
-		scanf(" %d", &chosenDay);
-		int i;
-		while (getchar() != '\n') {
-			i = 0;
-		}
-		if (chosenDay == -42) { break; }
-		int half;
-		printf("Please select the half(<0> -> first half, <anything else> -> second half): \n");
-		scanf(" %d", &half);
-		while (getchar() != '\n') {
-			i = 0;
-		}
+		//get day input
+		getInt(&chosenDay);
 
+		if (chosenDay == -42) { break; }
+		printf("Please select the half(<0> -> first half, <not zero> -> second half): \n");
+		//get half input
+		int half;
+		getInt(&half);
+		//delegate functions
 		switch (chosenDay)
 		{
 		case 1:
@@ -28,14 +26,18 @@ int main(void) {
 			else {
 				FindSumOfEquals();
 			}
+			break;
 		default:
-			chosenDay = -1;
 			break;
 		}
+		//At the end turn chosenDay back to a non-valid value so the loop goes on
+		chosenDay = -1;
+		//print a separation for better reading
 		printf("--------------------------------\n\n");
+		//free primitive garbageCollector
 		freeGC();
 	}
-
+	//free primitive garbageCollector to be safe
 	freeGC();
 
 	return 0;

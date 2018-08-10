@@ -28,3 +28,5 @@ extern void startTime();
 extern void endTime();
 
 extern char* getDynamicSizeString(int* size);
+
+extern void getInt(int* answer);

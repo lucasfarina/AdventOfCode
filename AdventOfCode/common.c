@@ -90,3 +90,11 @@ char* getDynamicSizeString(int* size) {
 
 	return string;
 }
+
+void getInt(int* answer) {
+	scanf(" %d", answer);
+	int i;
+	while (getchar() != '\n') {
+		i = 0;
+	}
+}
