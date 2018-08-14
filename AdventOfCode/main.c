@@ -1,5 +1,6 @@
 #include "common.h"
 #include "day1.h"
+#include "day2.h"
 
 int main(void) {
 	//Present the stop protocol
@@ -20,11 +21,19 @@ int main(void) {
 		switch (chosenDay)
 		{
 		case 1:
-			if (half != 0) {
-				FindSumOfEqualsHalf();
+			if (half == 0) {
+				FindSumOfEquals();
 			}
 			else {
-				FindSumOfEquals();
+				FindSumOfEqualsHalf();
+			}
+			break;
+		case 2:
+			if (half == 0) {
+				spreadsheetCheckSum();
+			}
+			else {
+				//teste();
 			}
 			break;
 		default:

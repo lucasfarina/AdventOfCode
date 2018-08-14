@@ -1,4 +1,5 @@
 #include "common.h"
+#include <math.h>
 
 clock_t start, end;
 double cpu_time_used;
@@ -80,7 +81,14 @@ char* getDynamicSizeString(int* size) {
 		i++;
 		if (i == currentSize) {
 			currentSize = i + packageLength;
-			string = realloc(string, currentSize);
+			char* temp = realloc(string, currentSize);
+			if (temp) {
+				string = temp;
+			}
+			else {
+				break;
+			}
+			free(temp);
 		}
 	}
 	*size = i;
@@ -97,4 +105,19 @@ void getInt(int* answer) {
 	while (getchar() != '\n') {
 		i = 0;
 	}
+}
+
+int charToInt(char character)
+{
+	return character - '0';
+}
+
+int stringToInt(char * charArray, int size)
+{
+	int sum = 0;
+	for (int i = size-1; i >= 0; i--) {
+		int number = charToInt(charArray[i]);
+		sum += number * pow(10, (double)(size - 1 - i));
+	}
+	return sum;
 }

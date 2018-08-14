@@ -30,3 +30,7 @@ extern void endTime();
 extern char* getDynamicSizeString(int* size);
 
 extern void getInt(int* answer);
+
+extern int charToInt(char character);
+
+extern int stringToInt(char* charArray, int size);

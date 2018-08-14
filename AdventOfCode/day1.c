@@ -16,7 +16,7 @@ int FindSumOfEquals() {
 
 		int next = (i + 1 == size) ? 0 : i + 1;
 		if (input[i] == input[next]) {
-			sum += (input[i] - '0');
+			sum += (charToInt(input[i]));
 		}
 	}
 
